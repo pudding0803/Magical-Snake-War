@@ -1,5 +1,6 @@
 from constants import *
 
+
 class Coord:
     def __init__(self, x, y):
         self.x = x
@@ -7,6 +8,7 @@ class Coord:
     def __getattr__(self, attr):
         if attr == 'coord':
             return (self.x, self.y)
+
 
 class Snake:
     def __init__(self, head, body_ls, dir, score_coord, key_tp):
@@ -84,6 +86,7 @@ class Snake:
             print('died from another body')
             print(self.head_coord, other.body_coord_ls)
             self.alive = False
+
 
 class Berry:
     def __init__(self, index, pos, exist=False, score = 1):
