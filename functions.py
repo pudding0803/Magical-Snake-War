@@ -1,6 +1,3 @@
-import pygame
-import random
-
 from constants import *
 from classes import *
 
@@ -36,7 +33,6 @@ def spawn_berry(berry_idx, berry_ls, a_body_pos_ls, b_body_pos_ls, init):
                 random.randint(0, RAND_Y) * 16
             )
             overlap = True
-            break
         for idx in range(BERRY_NUM):
             if berry.coord == berry_ls[idx].coord and berry_idx != berry_ls[idx].coord:
                 berry.coord = (
