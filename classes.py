@@ -40,10 +40,6 @@ class Snake:
                 self.dir = RIGHT
 
     def move(self):
-        if self.pop_immune:
-            self.pop_immune -= 1
-        else:
-            self.body_ls.pop()
         if self.dir == UP:
             self.head.y -= SNAKE_SIZE
         elif self.dir == DOWN:
@@ -53,6 +49,10 @@ class Snake:
         elif self.dir == RIGHT:
             self.head.x += SNAKE_SIZE
         self.body_ls.insert(0, Coord(self.head.x, self.head.y))
+        if self.pop_immune:
+            self.pop_immune -= 1
+        else:
+            self.body_ls.pop()
     
     def get_berry(self, berry_ls):
         for berry in berry_ls:
@@ -74,7 +74,9 @@ class Snake:
                     or self.head.y < 0 or self.head.y + SNAKE_SIZE > DISPLAY_HEIGHT:
             print('died from edge')
             self.alive = False
-        elif self.head_coord == other.head_coord:
+        elif self.head_coord == other.head_coord \
+                    or self.head_coord == other.body_coord_ls[1] \
+                            and self.dir + other.dir == 0:
             print('died from another head')
             print(self.head_coord, other.head_coord)
             self.alive = (self.score > other.score)

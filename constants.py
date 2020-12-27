@@ -1,6 +1,6 @@
 import pygame
 
-VERSION = '1.0.0 beta'
+VERSION = '1.0.1 beta'
 
 DISPLAY_WIDTH = 1136
 DISPLAY_HEIGHT = 640
@@ -22,9 +22,9 @@ BERRY_NUM = 3
 SUPER_COLOR_LS = [YELLOW, CYAN, MAGENTA]
 
 UP = 1
-DOWN = 2
-LEFT = 3
-RIGHT = 4
+DOWN = -1
+LEFT = 2
+RIGHT = -2
 
 SNAKE_SIZE = 16
 
