@@ -1,6 +1,7 @@
 # Magical Snake War
 
 ## 初始規則
+
 1.  操作方式
     * 左方玩家：Snake A，按鍵為 W A S D
     * 右方玩家：Snake B，按鍵為 方向鍵
