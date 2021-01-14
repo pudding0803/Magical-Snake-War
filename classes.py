@@ -5,6 +5,7 @@ class Coord:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
     def __getattr__(self, attr):
         if attr == 'coord':
             return (self.x, self.y)
@@ -53,7 +54,7 @@ class Snake:
             self.pop_immune -= 1
         else:
             self.body_ls.pop()
-    
+
     def get_berry(self, berry_ls):
         for berry in berry_ls:
             if self.head_coord == berry.coord:
@@ -67,16 +68,16 @@ class Snake:
         rect = text.get_rect()
         rect.center = self.score_coord
         SCREEN.blit(text, rect)
-        pygame.display.flip()
+        # pygame.display.flip()
 
     def collide_execute(self, other):
         if self.head.x < 0 or self.head.x + SNAKE_SIZE > DISPLAY_WIDTH \
-                    or self.head.y < 0 or self.head.y + SNAKE_SIZE > DISPLAY_HEIGHT:
+                or self.head.y < 0 or self.head.y + SNAKE_SIZE > DISPLAY_HEIGHT:
             print('died from edge')
             self.alive = False
         elif self.head_coord == other.head_coord \
-                    or self.head_coord == other.body_coord_ls[1] \
-                            and self.dir + other.dir == 0:
+                or self.head_coord == other.body_coord_ls[1] \
+                and self.dir + other.dir == 0:
             print('died from another head')
             print(self.head_coord, other.head_coord)
             self.alive = (self.score > other.score)
@@ -91,14 +92,14 @@ class Snake:
 
 
 class Berry:
-    def __init__(self, index, pos, exist=False, score = 1):
+    def __init__(self, index, pos, exist=False, score=1):
         self.index = index
         self.pos = pos
         self.exist = exist
         self.score = score
         self.color_idx = 0
         self.remote = 0
-    
+
     def __getattr__(self, attr):
         if attr == 'coord':
-            return self.pos.coord;
+            return self.pos.coord
