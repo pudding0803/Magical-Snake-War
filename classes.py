@@ -67,24 +67,17 @@ class Snake:
         rect = text.get_rect()
         rect.center = self.score_coord
         SCREEN.blit(text, rect)
-        pygame.display.flip()
 
     def collide_execute(self, other):
         if self.head.x < 0 or self.head.x + SNAKE_SIZE > DISPLAY_WIDTH \
                     or self.head.y < 0 or self.head.y + SNAKE_SIZE > DISPLAY_HEIGHT:
             print('died from edge')
             self.alive = False
-        elif self.head_coord == other.head_coord \
-                    or self.head_coord == other.body_coord_ls[1] \
-                            and self.dir + other.dir == 0:
-            print('died from another head')
-            print(self.head_coord, other.head_coord)
-            self.alive = (self.score > other.score)
         elif self.head_coord in self.body_coord_ls[1:]:
             print('died from self body')
             print(self.head_coord, self.body_coord_ls)
             self.alive = False
-        elif self.head_coord in other.body_coord_ls[1:]:
+        elif self.head_coord in other.body_coord_ls:
             print('died from another body')
             print(self.head_coord, other.body_coord_ls)
             self.alive = False

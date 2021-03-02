@@ -23,7 +23,6 @@ def main():
     berry_ls = [Berry(idx, Coord(-1, -1)) for idx in range(BERRY_NUM)]
     color_idx = 0
     berry_init = True
-    fps = 7
     running = True
 
     while running:
@@ -34,13 +33,25 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 snake_a.change_dir(event.key)
                 snake_b.change_dir(event.key)
+                if event.key == pygame.K_SPACE:
+                    print('A', snake_a.head_coord, 'B', snake_b.head_coord)
+                    for berry in berry_ls:
+                        print(berry.index, berry.coord)
 
-        # Update       
+        # Update     
+        fps = INIT_FPS + (snake_a.score + snake_b.score) // FPS_RATE
+
         snake_a.move()
         snake_b.move()
 
         snake_a.collide_execute(snake_b)
         snake_b.collide_execute(snake_a)
+
+        if not snake_a.alive and not snake_b.alive:
+            if snake_a.score > snake_b.score:
+                snake_a.alive = True
+            elif snake_b.score > snake_a.score:
+                snake_b.alive = True
 
         snake_a.get_berry(berry_ls)
         snake_b.get_berry(berry_ls)

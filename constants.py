@@ -2,7 +2,7 @@ import pygame
 import random
 import time
 
-VERSION = '1.0.2 beta'
+VERSION = '1.1.0 beta'
 
 DISPLAY_WIDTH = 1136
 DISPLAY_HEIGHT = 640
@@ -32,6 +32,9 @@ SNAKE_SIZE = 16
 
 RAND_X = 70
 RAND_Y = 39
+
+INIT_FPS = 6
+FPS_RATE = 8
 
 pygame.init()
 pygame.display.set_caption("Magical Snake War ver" + VERSION)
