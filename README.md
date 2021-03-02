@@ -17,12 +17,7 @@
     * 吃莓果可以使自己分數增加
 
 4.  開始遊戲
-    * 從終端機下載 pygame (如果已經下載過就不用)
-        ```console
-        pip install pygame
-        ```
-    * 閱讀 READ.MD 內的規則和玩法
-    * 使用任何 Python 的 IDE 執行 main.py
+    * 下載 Magical Snake War.exe 就可以玩了😆😆
     * 有任何意見或發現任何 bug 都可以跟我說😃😃
 
 ---
