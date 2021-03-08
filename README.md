@@ -1,4 +1,4 @@
-# Magical Snake War ver 1.1.0
+# Magical Snake War ver 1.1.1
 
 ## 初始規則
 

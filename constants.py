@@ -2,7 +2,7 @@ import pygame
 import random
 import time
 
-VERSION = '1.1.0 beta'
+VERSION = '1.1.1 beta'
 
 DISPLAY_WIDTH = 1136
 DISPLAY_HEIGHT = 640
